@@ -37,7 +37,7 @@
 ## Ruido
 
 - Definicion (?): fenomeno o proceso que perturba la percepción o interpretación de la señal.
-- Relación señal-ruido (S/R, SNR): medida de cuan contaminada está una señal. $ P_s: $ potencia de la señal, $ P_r: $ potencia del ruido. $$ \xi = \frac{P_s}{P_r} $$
+- Relación señal-ruido (S/R, SNR): medida de cuan contaminada está una señal. $ P_s: $ potencia de la señal, $ P_r: $ potencia del ruido. $$ \xi = \frac{P_s}{P_r} \ \xi \text{ dB} = 10 log \frac{P_s}{P_r}$$ recordemos que la potencia de una señal se puede calcular como $$\frac{1}{N} \sum^{N}_{n} |x[n]|^2$$
 - Fuentes de ruido
   - Relacionadas con el sistema bajo estudio
     - Intrinsecas
@@ -93,7 +93,7 @@
   - Operaciones de dominio: modifican la variable independiente. Se definen como $x_{nuevo} (t) = x_{viejo} (\tau ^{-1} (t))$
     - Expansion
     - Compresión
-    - Reversión temporal (o inversión)
+    - Reversión temporal (o inversión): una señal que es idéntica a su contraparte invertida es una _señal par_
     - Muestreo: pasa la variable independiente de un dominio continuo a uno discreto.
     - Interpolación: inversa al muestreo
 - Operaciones binarias: se realizan punto a punto entre dos señales
@@ -106,7 +106,7 @@
 
 ### Consulta 1
 
-Una señal aperiódica es una señal que no es periódica. ¿Esto sería cualquier señal no determinista tambien? La pregunta viene porque está como subclasificación de la deterministicas.
+Una señal aperiódica es una señal que no es periódica. ¿Esto sería cualquier señal no determinista tambien? La pregunta viene porque está como subclasificación de las deterministicas.
 
 ### Consulta 2
 
