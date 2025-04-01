@@ -16,7 +16,7 @@ Los sistemas presentan propiedades que sirven de criterio para clasificarlos, ta
 - Invertibilidad
 - Causalidad
 - Estabilidad
-- Invariabilidad
+- Invarianza temporal
 - Linealidad
 
 ### Memoria
@@ -26,6 +26,8 @@ Un sistema tiene memoria si la salida depende de valores de **entrada anteriores
 ### Invertibles
 
 Un sistema es invertible si distintas entradas producen distintas salidas. Esto es $\forall n \forall m (n \neq m \Rightarrow y[n] \neq y[m])$
+
+También puede verse como que, si se conoce la salida, puede recuperarse de forma determinística la entrada que la generó.
 
 ### Causales o no-anticipativos
 
@@ -37,12 +39,25 @@ Un sistema es estable si una entrada de magnitud acotada produce una salida tamb
 
 ### Invariantes
 
-Un sistema es invariante si una variación de la entrada produce la misma variación en la salida. También se puede decir que es invariante si los coeficientes de la ecuación que define la **dinamica del sistema** son constantes.
+Un sistema es invariante si un desplazamiento de la entrada produce un desplazamiento en el tiempo en la salida. También se puede decir que es invariante si los coeficientes de la ecuación que define la **dinamica del sistema** son constantes. Se puede ver como
+$$\forall t \left( x(t) \rightarrow y(t) \Rightarrow x(t-t_0) \rightarrow y(t-t_0) \right)$$
 
 ### Lineales
 
 Un sistema es lineal si posee la propiedad de superposición. Esto es
 $$ \forall t \left( y(x_1(t)) = y_1(t) \land y(x_2(t)) = y_2(t) \Rightarrow y \left( \alpha x_1(t) + \beta x_2(t) \right) = \alpha y_1(t) + \beta y_2(t) \right) $$
+
+Algunas pruebas que se pueden hacer para descartar si un sistema es lineal son:
+- En un sistema lineal, una entrada nula anula la salida.
+- Un sistema lineal no agrega armónicos a la señal.
+
+## Sistemas no-determinísticos
+
+Existen otros tipos de sistemas no-determinísticos o estocásticos, donde la regla del sistema es de naturaleza probabilística. Por tanto, aunque tengamos una entrada determinística, la salida no lo es.
+
+## Parámetros distribuidos
+
+Existen también sistemas donde no todas las entradas o sus efectos no afectan a todas las salidas y su dinámica debe describirse mediante ecuaciones diferenciales parciales.
 
 ## Dinámica del sistema
 
@@ -60,7 +75,7 @@ a_0y[n] = \sum^{M}_{k=0} b_k x[n-k] - \sum^{N}_{k=1} a_k y[n-k]\\
 y[n] = \frac{1}{a_0} \left[ \sum^{M}_{k=0} b_k x[n-k] - \sum^{N}_{k=1} a_k y[n-k] \right]$$
 Desta forma expresamos la salida en el instante _n_ en función de los **valores actual y anteriores de entrada** y de los **valores anteriores de salida**
 
-### Sistemas FIR
+### Sistemas FIR (o MA)
 
 En el caso de la ecuación no recursiva, estaremos hablando de sistemas de _respuesta finita al impulso_ (FIR, _Finite Impulse Response_)
 
@@ -68,13 +83,16 @@ $$y[n] = \frac{1}{a_0} \sum^{M}_{k=0} b_k x[n-k]$$
 
 Estos sistemas también son llamados de _promedios móviles_ (MA, _Moving Average_), ya que realizan un promedio de la entrada en sucesivos instantes de tiempo.
 
+Podemos ver que estos sistemas son **estables** y **causales**, ya que su salida depende únicamente de entradas anteriores y la actual, aunque pueden existir sistemas FIR no causales ($M = 0$)
+
 ### Sistemas IIR
 
 Los sistemas representados por la primer ecuación recursiva que reescribimos
 
 $$y[n] = \frac{1}{a_0} \left[ \sum^{M}_{k=0} b_k x[n-k] - \sum^{N}_{k=1} a_k y[n-k] \right]$$
 
-son denominados de _respuesta infinita al impulso_ (IIR, _Infinite Impulse Response_) y se dividen en dos tipos
+son denominados de _respuesta infinita al impulso_ (IIR, _Infinite Impulse Response_). Son **estables** si todos los polos de la función de transferencia tienen parte real negativa.
+Se dividen en dos tipos
 
 - **Sistemas Autogresivos** (AR): la salida está dada por los _valores anteriores de salida_ y únicamente el _valor actual de entrada_
 
