@@ -45,7 +45,9 @@ $$\forall t \left( x(t) \rightarrow y(t) \Rightarrow x(t-t_0) \rightarrow y(t-t_
 ### Lineales
 
 Un sistema es lineal si posee la propiedad de superposición. Esto es
-$$ \forall t \left( y(x_1(t)) = y_1(t) \land y(x_2(t)) = y_2(t) \Rightarrow y \left( \alpha x_1(t) + \beta x_2(t) \right) = \alpha y_1(t) + \beta y_2(t) \right) $$
+$$
+\forall t \left( x_1(t) \rightarrow y_1(t) \land x_2(t) \rightarrow y_2(t) \Rightarrow \alpha x_1(t) + \beta x_2(t) \rightarrow \alpha y_1(t) + \beta y_2(t) \right)
+$$
 
 Algunas pruebas que se pueden hacer para descartar si un sistema es lineal son:
 - En un sistema lineal, una entrada nula anula la salida.
