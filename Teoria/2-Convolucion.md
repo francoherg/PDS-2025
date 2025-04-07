@@ -98,6 +98,15 @@ Propiedades de la convolución
 - Desplazamiento
 - Derivabilidad
 - Soporte de la convolución: una de las cosas que nos dice es la cantidad de muestras que va a tener la convolución de acuerdo a la cantidad de muestas de x y h
+$$
+y[n] = \sum^{\infty}_{k=-\infty} x[k]h[n-k]\\
+\text{si x[n] es distinto de cero en [0,N-1] y h[n] es distinto de cero para [0,M-1] entonces}\\
+0 \leq k \leq N-1 \Rightarrow x[k] \neq 0\\
+0 \leq n-k \leq M-1 \Rightarrow h[n-k] \neq 0\\
+\text{sumando los lados de las inecuaciones}\\
+\Rightarrow 0 \leq n \leq N+M-2\\
+\text{es el intervalo donde y[n] no es cero, donde hay N+M-1 muestras}
+$$
 - Convolución y multiplicación
 
 Lineal a partir de circular
