@@ -46,6 +46,8 @@ ax[0].set_ylim(-10,10)
 ax[1].set_ylim(0,1100)
 
 ax[0].grid()
+ax[1].axhline(0)
+ax[2].axhline(0, color='black')
 graphy, = ax[0].plot(t,y)
 ax[0].plot(t,cuad)
 bars = [0 for _ in range(10)]
