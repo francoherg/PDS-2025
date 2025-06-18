@@ -33,8 +33,8 @@ sigma = r * np.cos(theta)
 omega = r * np.sin(theta)
 z = sigma + 1j*omega
 
-Y = [1.0/np.power(2,k) for k in range(8)]
-X = [1]
+Y = [1, -2, 2, -1]
+X = [1, -1.7, 0.8, -0.1]
 
 z = np.asarray(z, dtype=complex)
 original_shape = z.shape
